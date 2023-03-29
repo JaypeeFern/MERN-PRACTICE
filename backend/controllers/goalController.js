@@ -9,7 +9,7 @@ import Goal from "../models/goalModel.js";
 // @route GET /api/goals
 // @access Private
 export const getGoals = asyncHandler(async (req, res) => {
-  const goals = await Goal.find();
+  const goals = await Goal.find({user: req.user.id});
   res.status(200).json(goals);
 });
 
@@ -22,6 +22,7 @@ export const setGoal = asyncHandler(async (req, res) => {
     throw new Error("Please add a text field");
   }
   const goal = await Goal.create({
+    user: req.user.id,
     text: req.body.text,
   });
   res.status(200).json(goal);
