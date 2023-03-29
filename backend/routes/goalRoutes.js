@@ -1,11 +1,12 @@
 import express from 'express';
-import { getGoals, fetchGoal, createGoal, deleteGoal } from '../controllers/goalController.js';
+import { getGoals, setGoal, createGoal, deleteGoal } from '../controllers/goalController.js';
 
 const router = express.Router()
 
-router.get('/', getGoals)
-router.post('/', fetchGoal)
-router.put('/:id', createGoal)
-router.delete('/:id', deleteGoal)
+// This syntax is the same as: router.get('/', getGoals) and router.post('/', setGoal)
+router.route('/').get(getGoals).post(setGoal)
+
+// This syntax is the same as: router.put('/:id', createGoal) and router.delete('/:id', deleteGoal)
+router.route('/:id').put(createGoal).delete(deleteGoal)
 
 export default router
