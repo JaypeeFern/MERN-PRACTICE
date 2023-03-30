@@ -5,9 +5,9 @@ export default function IndexLayout() {
     return (
         <div className='main--container'>
             <nav style={{display: 'flex', gap:'15px'}}>
-                <NavLink to='/' exact>Home</NavLink>
-                <NavLink to='about'>About</NavLink>
-                <NavLink to='contact'>Contact</NavLink>
+                <NavLink end to='/'>Dashboard</NavLink>
+                <NavLink to='login'>Login</NavLink>
+                <NavLink to='register'>Register</NavLink>
             </nav>
             <Outlet/>
         </div>
