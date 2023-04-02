@@ -1,5 +1,6 @@
 import React from 'react'
 import { Outlet, Link, NavLink } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
 
 export default function IndexLayout() {
     return (
@@ -10,6 +11,7 @@ export default function IndexLayout() {
                 <NavLink to='register'>Register</NavLink>
             </nav>
             <Outlet/>
+            <ToastContainer/>
         </div>
     )
 }

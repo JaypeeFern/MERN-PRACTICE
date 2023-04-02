@@ -9,6 +9,7 @@ import userRoutes from './routes/userRoutes.js';
 import { errorHandler } from './middleware/errorMiddleware.js';
 import connectDB from './config/db.js';
 import colors from 'colors';
+import cors from 'cors';
 
 const env = dotenv.config();
 const port = process.env.PORT || 5000;
@@ -18,6 +19,9 @@ connectDB();
 
 // Initialize express
 const app = express();
+
+// Enable CORS
+app.use(cors({origin: process.env.ORIGIN}));
 
 // This is a built-in middleware function in Express. It parses incoming requests with JSON payloads and is based on body-parser.
 app.use(express.json());
